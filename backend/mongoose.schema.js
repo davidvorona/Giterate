@@ -3,9 +3,9 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 //mongoose.createConnection('mongodb://localhost/8080');
- 
+
 // var db = mongoose.connection;
- 
+
 // db.on('error', function (err) {
 // console.log('connection error', err);
 // });
@@ -24,4 +24,4 @@ var Userschema = new Schema({
   //^^ either db.update push or db.set Array with proper info
 
 
-const User = mongoose.model('User', Userschema); 
+const User = mongoose.model('User', Userschema);

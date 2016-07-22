@@ -1,8 +1,8 @@
 const User = require('./mongoose.schema')
 
-Usercontroller = {};
+UserController = {};
 
-Usercontroller.createNewUser = function(req, res) {
+UserController.createNewUser = function(req, res) {
 	var newuser = {};
 	if(req.body.Fname.length > 0) newuser.fname = req.body.Fname
 	if(req.body.Lname.length > 0) newuser.Lname = req.body.Lname
@@ -18,7 +18,7 @@ Usercontroller.createNewUser = function(req, res) {
 	});
 };
 
-Usercontroller.getallusers = function(req, res) {
+UserController.getallusers = function(req, res) {
 	User.find({});
 }
 
@@ -26,9 +26,8 @@ Usercontroller.getallusers = function(req, res) {
 
 
 
-module.exports = Usercontroller; 
+module.exports = UserController;
 
 // Usercontroller.updateUser = function(req, res) {
 // 	//put request update user
 // }
-
