@@ -18,7 +18,7 @@ UserController.createNewUser = function(req, res) {
 	});
 };
 
-UserController.getallusers = function(req, res) {
+UserController.getAllUsers = function(req, res) {
 	User.find({});
 }
 
