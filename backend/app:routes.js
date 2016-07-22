@@ -11,9 +11,9 @@ module.exports = function(app) {
 //create user route
 //get user info route
 app.get('/', function(req, res){
-  // res.sendFile(path.join(__dirname + '/../client/index.html'));
-  
-  
+  res.sendFile(path.join(__dirname + '/../client/question.html'));
+
+
 });
 
 app.post('/candidateCreate', UserController.createNewUser);
