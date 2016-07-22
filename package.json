@@ -1,0 +1,28 @@
+{
+  "name": "giterate",
+  "version": "1.0.0",
+  "description": "giterating through the six with my woes",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha test/",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidvorona/Giterate.git"
+  },
+  "keywords": [
+    "giterate",
+    "testing",
+    "tendencies"
+  ],
+  "author": "Team Giterate",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davidvorona/Giterate/issues"
+  },
+  "homepage": "https://github.com/davidvorona/Giterate#readme"
+}
