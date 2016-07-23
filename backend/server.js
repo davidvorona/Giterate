@@ -18,6 +18,7 @@ var port = process.env.PORT || 8080;
 mongoose.connect(db.url);
 
 app.use(bodyParser.json());
+app.set('view engine', 'ejs');
 
 // parse application/vnd.api+json as json
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
