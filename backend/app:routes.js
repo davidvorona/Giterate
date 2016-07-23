@@ -28,7 +28,7 @@ app.get('/questions', function(req, res){
 });
 
 app.get('*', function(req, res){
-	res.status(404).send('HUHHHHH? GET A LIFE')
+	res.status(404).send('Please refer to the correct url and try again!')
 });
 
 
