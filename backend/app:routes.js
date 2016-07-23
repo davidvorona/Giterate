@@ -16,7 +16,9 @@ app.get('/', function(req, res){
   res.sendFile(path.join(__dirname + '/../client/employer.html'));
 });
 
-app.get('/question/:fName/:lName', QuestionController.chooseUser);
+app.get('/question/:fName/:lName', QuestionController.chooseUser, function(req, res){
+	res.status(404).send('Please refer to the correct url and try again!')
+});
 
 app.get('/questions', function(req, res){
 	var q1 = "SWEET";
