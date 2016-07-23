@@ -14,6 +14,11 @@ app.get('/', function(req, res){
   res.sendFile(path.join(__dirname + '/../client/employer.html'));
 });
 
+app.get('/question/:fName:lName', function(req, res){
+  res.sendFile(path.join(__dirname + '/../client/employer.html'));
+});
+
+
 app.post('/employer', UserController.createNewUser);
 
 app.get('/allusers', UserController.getAllUsers)
