@@ -30,7 +30,4 @@ app.post('/question', UserController.testData, UserController.updateUser);
 app.post('/employer', UserController.createNewUser);
 
 app.get('/allusers', UserController.getAllUsers);
-
-// app.get('*', function(req, res) {
-// 	res.send("hello")
-// });
+}
