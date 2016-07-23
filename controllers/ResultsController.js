@@ -36,23 +36,24 @@ function codeParser(string) {
 	let newlines = 0;
 	let fors = 0;
 	let whiles = 0;
-	let vars = 0;
+	let decs = 0;
 	let varsObj = {};
 	let arrows = 0;
 	let funcs = 0;
 	let inputChange = 0;
 	let spaceComp = 0;
-	let statsArray = [];
+	let statsObj = {};
 	for (var i = 0; i < string.length; i++) {
 		if (string[i]+string[i+1] === '$n') newlines++;
 		if (string[i]+string[i+1]+string[i+2] === 'for') fors++;
 		if (string[i]+string[i+1]+string[i+2]+string[i+3]+string[i+4] === 'while') whiles++;
-		if (string[i]+string[i+1]+string[i+2] === 'var') {
-			decs++;
-		}
+		if (string[i]+string[i+1]+string[i+2] === 'var') decs++;
 	}
-	statsArray.push(newlines, fors, whiles);
-	return statsArray;
+	statsObj.newlines = newlines;
+	statsObj.fors = fors;
+	statsObj.whiles = whiles;
+	statsObj.decs = decs;
+	return statsObj;
 }
 
 codeParser(string);

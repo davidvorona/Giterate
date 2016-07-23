@@ -4,8 +4,9 @@ UserController = {};
 
 UserController.createNewUser = function(req, res) {
 	var newuser = {};
-	if(req.body.Fname.length > 0) newuser.fname = req.body.Fname
-	if(req.body.Lname.length > 0) newuser.Lname = req.body.Lname
+	if(req.body.fName.length > 0) newuser.fName = req.body.fName
+	if(req.body.lName.length > 0) newuser.lName = req.body.lName
+	if(req.body.email.length > 0) newuser.email = req.body.email
 
 	User.create(newuser, function(err, data) {
 		if(!err) {
@@ -16,15 +17,13 @@ UserController.createNewUser = function(req, res) {
 			return("Error, didn't work you suck")
 		}
 	});
+	res.redirect('/')
+	//CHANGE REDIRECT TO RESULTS PAGE
 };
 
-UserController.getallusers = function(req, res) {
+UserController.getAllUsers = function(req, res) {
 	User.find({});
 }
-
-
-
-
 
 module.exports = UserController;
 
