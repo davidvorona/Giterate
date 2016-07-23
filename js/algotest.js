@@ -1,17 +1,21 @@
-function run(event){
-		event.preventDefault();
-		var prob1 = $('#ans1').val();
-		eval(prob1);
+var UserController = require('./../backend/UserController');
 
-		var prob2 = $('#ans2').val();
-		eval(prob2); 
+function run(q1,q2,q3){
 
-		var prob3 = $('#ans3').val();
-		eval(prob3); 
+	var resObj = {};
+		eval(q1);
 
+		
+		eval(q2); 
 
-		if(romanNumeral){
+		
+		eval(q3); 
+
+		var testObj = {}; 
+
+		if(romanNumeral !== undefined){
 			var romanNumTest = {
+				name: 'romanNum', 
 				smallNumbers: false,
 				largeNumbers: false, 
 				zero: false, 
@@ -29,10 +33,12 @@ function run(event){
 			for(var prop in romanNumTest){
 				if (romanNumTest[prop] ===true) romanNumTest.counter += 1; 
 			}
+			resObj['romanNumTest'] = romanNumTest;
 		}
 
-		if(pow){
+		if(pow !== undefined){
 			var powTest = {
+				name: 'pow', 
 				smallNumbers: false,
 				largeNumbers: false, 
 				zero: false, 
@@ -43,22 +49,24 @@ function run(event){
 			
 			if (pow(3,3) === 27) powTest.smallNumbers = true; 
 			if (pow(5,10) === 9765625) powTest.largeNumbers = true; 
-			if (pow(15) === 1) powTest.one = true; 
+			if (pow(1,15) === 1) powTest.one = true; 
 			if (pow(0, 20) === 0) powTest.zero = true; 
 
 			for(var prop in powTest){
 				if (powTest[prop] ===true) powTest.counter += 1; 
 			}
+			resObj['powTest'] = powTest;
 		}
 
-		if(bestProfit){
+		if(bestProfit !== undefined){
 			var bestProfitTest = {
+				name: 'bestProfit', 
 				smallArray: false,
 				largeArray: false, 
 				noProfit: false, 
 				string: false, 
 				counter: 0,
-				total: 4
+				total: 5
 			};
 			
 			if (bestProfit([30,20,10,50,90]) === 80) bestProfitTest.smallArray = true; 
@@ -70,10 +78,14 @@ function run(event){
 			for(var prop in bestProfitTest){
 				if (bestProfitTest[prop] ===true) bestProfitTest.counter += 1; 
 			}
+			resObj['bestProfitTest'] = bestProfitTest;
 		}
 
-		console.log('romanNumTest', romanNumTest);
-		console.log('powTest', powTest);
-		console.log('bestProfitTest', bestProfitTest)
-		
+		return resObj;
+
+		// console.log('romanNumTest', romanNumTest);
+		// console.log('powTest', powTest);
+		// console.log('bestProfitTest', bestProfitTest); 
 }
+
+module.exports = run; 
