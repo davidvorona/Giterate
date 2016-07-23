@@ -9,13 +9,16 @@ QuestionController.chooseUser = function(req, res) {
 
 	chosenUser['fName'] = fName;
 	chosenUser['lName'] = lName;
-	User.findOne(chosenUser, function(err, user, done) {
+
+	
+	User.findOne(chosenUser, function(err, user) {
+		QuestionController.savedUser = user._id;
 		if(err) console.log('ERROR!')
 		else if(user === null) {
 			res.redirect('/');
-			done();
+			res.end();
 		} else {
-			var q1, q2, q3;
+			var q1, q2, q3, id;
 			var keyArr = Object.keys(user.Questions);
 			q1 = user.Questions[keyArr[0]];
 			q2 = user.Questions[keyArr[1]];
@@ -26,7 +29,3 @@ QuestionController.chooseUser = function(req, res) {
 };
 
 module.exports = QuestionController;
-
-// Usercontroller.updateUser = function(req, res) {
-// 	//put request update user
-// }
