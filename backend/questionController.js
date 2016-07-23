@@ -10,10 +10,9 @@ QuestionController.chooseUser = function(req, res) {
 	chosenUser['fName'] = fName;
 	chosenUser['lName'] = lName;
 	User.findOne(chosenUser, function(err, user, done) {
-		if(err) console.log('ERROR!')
-		else if(user === null) {
-			res.redirect('/');
-			done();
+		if(user === null) {
+			res.redirect('/')
+			res.end();
 		} else {
 			var q1, q2, q3;
 			var keyArr = Object.keys(user.Questions);
