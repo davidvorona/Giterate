@@ -5,7 +5,6 @@ var mg = require('nodemailer-mailgun-transport');
 
 var EmailController = {};
 
-console.log('dude');
 EmailController.autoMail = function(fName, lName, email) {
   var smtpTransport = nodemailer.createTransport({
      service: "MailGun",  // sets automatically host, port and connection security settings
