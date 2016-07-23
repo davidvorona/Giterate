@@ -10,16 +10,21 @@ QuestionController.chooseUser = function(req, res) {
 	newuser['fName'] = fName;
 	newuser['lName'] = lName;
 	console.log(newuser)
-	User.findOne(newuser, function(err, user){
-		if(err) res.redirect('/')
+	User.findOne(newuser, function(err, user, next){
+		console.log(user)
+		if(err) console.log('ERRORRRRRR')
+		if(user == null) {
+			res.redirect('/')
+			done();
+		}
 		var q1, q2, q3;
 
 		//COMMENT OUT LATER WHEN YOU HAVE DATA
-		user.Questions = {	
-			mergesort:"Merge Sort is cool",
-			fizzbuzz:"Fizzbuzz is cool",
-			applestocks:"STOCKS SUCK"
-		};
+		// user.Questions = {	
+		// 	mergesort:"Merge Sort is cool",
+		// 	fizzbuzz:"Fizzbuzz is cool",
+		// 	applestocks:"STOCKS SUCK"
+		// };
 
 		var keyArr = Object.keys(user.Questions)
 		q1 = user.Questions[keyArr[0]]
