@@ -1,40 +1,29 @@
-const User = require('./mongoose.schema')
+const User = require('./mongoose.schema');
 
 QuestionController = {};
 
 QuestionController.chooseUser = function(req, res) {
-	var newuser = {};
+	var chosenUser = {};
 	var fName = req.params.fName;
 	var lName = req.params.lName;
 
-	newuser['fName'] = fName;
-	newuser['lName'] = lName;
-	console.log(newuser)
-	User.findOne(newuser, function(err, user, next){
-		console.log(user)
-		if(err) console.log('ERRORRRRRR')
-		if(user == null) {
-			res.redirect('/')
+	chosenUser['fName'] = fName;
+	chosenUser['lName'] = lName;
+	User.findOne(chosenUser, function(err, user, done) {
+		if(err) console.log('ERROR!')
+		else if(user === null) {
+			res.redirect('/');
 			done();
+		} else {
+			var q1, q2, q3;
+			var keyArr = Object.keys(user.Questions);
+			q1 = user.Questions[keyArr[0]];
+			q2 = user.Questions[keyArr[1]];
+			q3 = user.Questions[keyArr[2]];
+			res.render('question.ejs', {q1: q1, q2: q2, q3: q3});
 		}
-		var q1, q2, q3;
-
-		//COMMENT OUT LATER WHEN YOU HAVE DATA
-		// user.Questions = {	
-		// 	mergesort:"Merge Sort is cool",
-		// 	fizzbuzz:"Fizzbuzz is cool",
-		// 	applestocks:"STOCKS SUCK"
-		// };
-
-		var keyArr = Object.keys(user.Questions)
-		q1 = user.Questions[keyArr[0]]
-		q2 = user.Questions[keyArr[1]]
-		q3 = user.Questions[keyArr[2]]
-		res.render('question.ejs', {q1: q1, q2: q2, q3: q3});
 	});
 };
-
-
 
 module.exports = QuestionController;
 
