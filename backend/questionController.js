@@ -9,16 +9,18 @@ QuestionController.chooseUser = function(req, res, next) {
 
 	newuser['fName'] = fName;
 	newuser['lName'] = lName;
+	console.log(newuser)
 	User.findOne(newuser, function(err, user){
+		var q1, q2, q3;
+		var keyArr = Object.keys(user.Questions)
+		q1 = user.Questions[keyArr[0]]
+		q2 = user.Questions[keyArr[1]]
+		q3 = user.Questions[keyArr[2]]
 		console.log(user.email)
+		res.render('question.ejs', {q1: q1, q2: q2, q3: q3});
 	});
-	next();
 };
 
-// first: shray
-// last: bansal
-// localhost:8080/question?fName=shray&lName=bansal
-// localhost:8080/question?fName={fNameVar}&lName={lNameVar}
 
 
 module.exports = QuestionController;
