@@ -1,7 +1,6 @@
 var app = angular
   .module('Giterate', [
     'ngRoute',
-    'AlgorithmsController',
     'ResultsController',
     'HomeController'
   ]);
@@ -13,16 +12,12 @@ app.config(configFunction);
 function configFunction($routeProvider, $locationProvider) {
 
   $routeProvider
-    .when('/employer', {
-      templateUrl: './partials/employer.html',
-      controller: 'AlgorithmsController'
+    .when('/', {
+      templateUrl: './partials/emphome.html',
+      controller: 'HomeController'
     })
-    .when('/candidate', {
-      templateUrl: './partials/candidate.html',
+    .when('/results', {//CHECK WHAT RESTFUL SHOULD BE
+      templateUrl: './partials/empresults.html',
       controller: 'ResultsController'
     })
-    .when('/', {
-      templateUrl: './partials/home.html',
-      controller: 'HomeController'
-    });
 }
