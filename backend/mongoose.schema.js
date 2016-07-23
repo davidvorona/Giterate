@@ -6,7 +6,7 @@ var UserSchema = new Schema({
   fName: String,
   lName: String,
   email: String,
-  Questions: {},
+  Questions: Object,
   ParsedAnswers:{},
   TestedAnswers:{}
 });
