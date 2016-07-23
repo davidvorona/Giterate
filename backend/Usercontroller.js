@@ -18,17 +18,19 @@ var questions = {
 
 UserController.createNewUser = function(req, res) {
 	var newuser = {
-		Questions: {}
+		Questions: {},
+		TestedAnswers: {}
 	};
 	for (var prop in req.body){
        if (req.body[prop] === 'on'){
               newuser['Questions'][prop] = questions[prop]; 
+              newuser['TestedAnswers'][prop] = {}; 
               }
            }
 
-	if(req.body.fName.length > 0) newuser.fName = req.body.fName
-	if(req.body.lName.length > 0) newuser.lName = req.body.lName
-	if(req.body.email.length > 0) newuser.email = req.body.email
+	if(req.body.fName.length > 0) newuser.fName = req.body.fName;
+	if(req.body.lName.length > 0) newuser.lName = req.body.lName;
+	if(req.body.email.length > 0) newuser.email = req.body.email;
 
 	User.create(newuser, function(err, data) {
 		if(!err) {
