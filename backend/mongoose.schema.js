@@ -7,8 +7,8 @@ var UserSchema = new Schema({
   lName: String,
   email: String,
   Questions: Object,
-  ParsedAnswers:{},
-  TestedAnswers:{}
+  ParsedAnswers: Object,
+  TestedAnswers: Object
 });
   //^^ either db.update push or db.set Array with proper info
 

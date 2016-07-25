@@ -22,7 +22,7 @@ app.get('/question/:fName/:lName', QuestionController.chooseUser, function(req, 
 
 
 app.get('*', function(req, res){
-	res.status(404).send('HUHHHHH? GET A LIFE')
+	res.status(404).send('Please refer to the correct url and try again!')
 });
 
 app.post('/question', UserController.testData, UserController.updateUser);
