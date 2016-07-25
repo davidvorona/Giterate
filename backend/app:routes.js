@@ -3,7 +3,7 @@ var User = require('./mongoose.schema');
 var http = require('http');
 var path = require('path');
 
-var UserController = require('./Usercontroller')
+var UserController = require('./UserController')
 var QuestionController = require('./questionController')
 
 module.exports = function(app) {

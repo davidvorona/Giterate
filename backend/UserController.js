@@ -64,11 +64,11 @@ UserController.testData = function(req, res, next){
 };
 
 UserController.updateUser = function(req, res, next){
-
 	User.findOne({_id: QuestionController.savedUser}, function (err, user){
 		if (!user){
 			console.log('err', err);
-		} else{
+		} else {
+			console.log('what?')
 			user['TestedAnswers'] = req.body.testdata;
 			console.log(user);
 			user.save();
