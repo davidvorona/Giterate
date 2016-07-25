@@ -5,7 +5,6 @@ var QuestionController = require('./questionController');
 
 
 var UserController = {};
-console.log('test %%%%%%%%%');
 
 //SHOULD WE MOVE THIS TO IT'S OWN PAGE AND REQUIRE IT ABOVE?
 
@@ -68,7 +67,6 @@ UserController.updateUser = function(req, res, next){
 		if (!user){
 			console.log('err', err);
 		} else {
-			console.log('what?')
 			user['TestedAnswers'] = req.body.testdata;
 			console.log(user);
 			user.save();
