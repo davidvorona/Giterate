@@ -59,9 +59,8 @@ UserController.getAllUsers = function(req, res) {
 };
 
 UserController.testData = function(req, res, next){
-
-req.body['testdata'] = run(req.body.ans1, req.body.ans2, req.body.ans3);
-next();
+	req.body['testdata'] = run(req.body.ans1, req.body.ans2, req.body.ans3);
+	next();
 };
 
 UserController.updateUser = function(req, res, next){
@@ -70,8 +69,8 @@ UserController.updateUser = function(req, res, next){
 		if (!user){
 			console.log('err', err);
 		} else{
-			console.log(user);
 			user['TestedAnswers'] = req.body.testdata;
+			console.log(user);
 			user.save();
 		}
 	});

@@ -1,3 +1,5 @@
+// HI GUYS, FIGURE OUT HOW TO CONNECT THIS TO USERCONTROLLER AND DISPLAY IT ON RESULTS PAGE
+
 resultsController = {};
 
 resultsController = function(qArray) {
