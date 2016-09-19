@@ -3,8 +3,6 @@ var EmailController = require('./EmailController');
 
 UserController = {};
 
-//SHOULD WE MOVE THIS TO IT'S OWN PAGE AND REQUIRE IT ABOVE?
-
 var questions = {
 	fizzBuzz: 'Please write a function that takes a number as an input and returns an array from 1 up to the input number containing "fizz", "buzz", "fizzbuzz" or a number.  "Fizz" should appear if number % 3 === 0, "Buzz" if the number % 5 === 0 and "FizzBuzz" if number % 3 === 0 and number % 5 === 0. If not divisible by either, return number.  Ex: fizzBuzz(15) => [1,2,"Fizz", 4,"Buzz", 6,7,8,"Fizz", "Buzz", 11, "Fizz", 13, "FizzBuzz"].  Handle obvious edge cases.',
 	mergeSort: 'Please write a function that sorts an array WITHOUT using a for loop.  Consider recursion. Ex: mergeSort([5,2,6,9,0,3,1] => [0,1,2,3,5,6,9]. Handle obvious edge cases.',
