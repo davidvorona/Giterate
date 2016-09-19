@@ -1,7 +1,10 @@
 const User = require('./mongoose.schema');
 var EmailController = require('./EmailController');
+var run = require('./../js/algotest');
+var QuestionController = require('./questionController');
 
-UserController = {};
+
+var UserController = {};
 
 var questions = {
 	fizzBuzz: 'Please write a function that takes a number as an input and returns an array from 1 up to the input number containing "fizz", "buzz", "fizzbuzz" or a number.  "Fizz" should appear if number % 3 === 0, "Buzz" if the number % 5 === 0 and "FizzBuzz" if number % 3 === 0 and number % 5 === 0. If not divisible by either, return number.  Ex: fizzBuzz(15) => [1,2,"Fizz", 4,"Buzz", 6,7,8,"Fizz", "Buzz", 11, "Fizz", 13, "FizzBuzz"].  Handle obvious edge cases.',
@@ -17,39 +20,58 @@ var questions = {
 
 UserController.createNewUser = function(req, res) {
 	var newuser = {
-		Questions: {}
+		Questions: {},
+		TestedAnswers: {}
 	};
 	for (var prop in req.body){
        if (req.body[prop] === 'on'){
               newuser['Questions'][prop] = questions[prop];
+              newuser['TestedAnswers'][prop] = {};
               }
            }
 
-	if(req.body.fName.length > 0) newuser.fName = req.body.fName
-	if(req.body.lName.length > 0) newuser.lName = req.body.lName
-	if(req.body.email.length > 0) newuser.email = req.body.email
 
+
+	if(req.body.fName.length > 0) newuser.fName = req.body.fName;
+	if(req.body.lName.length > 0) newuser.lName = req.body.lName;
+	if(req.body.email.length > 0) newuser.email = req.body.email;
+	newuser.TestedAnswers = {total: 4}
 	User.create(newuser, function(err, data) {
 		if(!err) {
 			console.log("Algorithms sent to candidate, maybe render his bitch ass to his dashboard?");
-			EmailController.autoMail(newuser.fName, newuser.lName, newuser.email)
+			EmailController.autoMail(newuser.fName, newuser.lName, newuser.email);
 			console.log('newuser', newuser);
 			return "Algorithms sent to candidate";
 		} else {
 			console.log("Error, didn't work you suck");
-			return("Error, didn't work you suck")
+			return("Error, didn't work you suck");
 		}
 	});
-	res.redirect('/')
+	res.redirect('/');
 	//CHANGE REDIRECT TO RESULTS PAGE
 };
 
 UserController.getAllUsers = function(req, res) {
 	User.find({});
-}
+};
+
+UserController.testData = function(req, res, next){
+	req.body['testdata'] = run(req.body.ans1, req.body.ans2, req.body.ans3);
+	next();
+};
+
+UserController.updateUser = function(req, res, next){
+	User.findOne({_id: QuestionController.savedUser}, function (err, user){
+		if (!user){
+			console.log('err', err);
+		} else {
+			user['TestedAnswers'] = req.body.testdata;
+			console.log(user);
+			user.save();
+		}
+	});
+	res.redirect('/');
+	res.end();
+};
 
 module.exports = UserController;
-
-// Usercontroller.updateUser = function(req, res) {
-// 	//put request update user
-// }

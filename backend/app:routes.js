@@ -4,7 +4,7 @@ var http = require('http');
 var path = require('path');
 
 var UserController = require('./UserController')
-var QuestionController = require('./QuestionController')
+var QuestionController = require('./questionController')
 
 module.exports = function(app) {
 //server routes/ api calls/ authentication routes
@@ -49,22 +49,17 @@ app.get('*.js', function(req, res){
 });
 
 
+
 app.get('*', function(req, res){
 	res.status(404).send('Please refer to the correct url and try again!')
 });
 
+app.post('/question', UserController.testData, UserController.updateUser);
 
 
 
 
 app.post('/employer', UserController.createNewUser);
 
-app.get('/allusers', UserController.getAllUsers)
-
-// app.get('*', function(req, res) {
-// 	res.send("hello")
-// });
-
-//send everything to home page for now
-
+app.get('/allusers', UserController.getAllUsers);
 }
