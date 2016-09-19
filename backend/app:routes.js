@@ -12,7 +12,6 @@ module.exports = function(app) {
 //create user route
 //get user info routes
 
-app.get('/')
 
 app.get('/', function(req, res){
   res.sendFile(path.join(__dirname + '/../views/employer.html'));

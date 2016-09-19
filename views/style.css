@@ -29,16 +29,15 @@ border:1px solid #7d99ca; -webkit-border-radius: 3px; -moz-border-radius: 3px;bo
 }
 
 #inputs{
-    height: 40px;
+    /*height: 40px;*/
     font-size: 20px;
     background-color: #F0F0F0; 
-    padding-top: 15px;
-    padding-left: 15px; 
+    padding: 15px 20px;
     border-radius: 5px; 
     border: 1px;
     border-color: #000; 
     opacity: .7;
-    width: 50%;
+    /*width: 50%;*/
 }
 
 #cbs {
@@ -50,5 +49,5 @@ border:1px solid #7d99ca; -webkit-border-radius: 3px; -moz-border-radius: 3px;bo
     border: 1px;
     border-color: #000; 
     opacity: .7;
-    width: 50%;
+    /*width: 50%;*/
 }

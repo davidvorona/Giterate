@@ -3,14 +3,16 @@
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 
 <head>
-    <meta charset="UTF-8">
-	<link href='https://fonts.googleapis.com/css?family=Roboto:400,900' rel='stylesheet' type='text/css'>
-    <title>Giterate</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="bootstrap.min.css">
+  <meta charset="UTF-8">
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,900' rel='stylesheet' type='text/css'>
+  <title>Giterate</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./bootstrap.min.css">
 </head>
 <body>
-	 <form method='POST' action='/employer'>
+  <div class="container">
+    <div class="row">
+      <form method='POST' action='/employer'>
         <div id='inputs'>
         First Name: <input class='input' type='text' name='fName'></input>
         Last Name: <input class='input' type='text' name='lName'></input>
@@ -28,13 +30,8 @@
         <input class = 'cb' type="checkbox" id='checkBox5' name="bestProfit"> Best Profit<br><br>
         <input class = 'button' type="submit" value="Send Questions to Candidate">
         </div>
-    </form>
-
-      
-
-  
-	
-
-
+      </form>
+    </div>
+  </div>
 </body>
 </html>
