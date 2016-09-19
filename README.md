@@ -49,3 +49,5 @@ else (res.push(right.shift()));
 }
 return res.concat(left, right);
 }
+
+![Screenshot1](giterate.png)
